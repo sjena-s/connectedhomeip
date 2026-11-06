@@ -136,6 +136,7 @@ class HostApp(Enum):
     CONTACT_SENSOR = auto()
     DISHWASHER = auto()
     ELECTRICAL_PROTECTION = auto()
+    MULTI_BREAKER = auto()
     MICROWAVE_OVEN = auto()
     REFRIGERATOR = auto()
     RVC = auto()
@@ -237,6 +238,8 @@ class HostApp(Enum):
             return 'microwave-oven-app/linux'
         if self == HostApp.ELECTRICAL_PROTECTION:
             return 'electrical-protection-app/linux'
+        if self == HostApp.MULTI_BREAKER:
+            return 'multi-breaker-app/linux'
         if self == HostApp.REFRIGERATOR:
             return 'refrigerator-app/linux'
         if self == HostApp.RVC:
@@ -374,6 +377,9 @@ class HostApp(Enum):
         elif self == HostApp.ELECTRICAL_PROTECTION:
             yield 'chip-electrical-protection-app'
             yield 'chip-electrical-protection-app.map'
+        elif self == HostApp.MULTI_BREAKER:
+            yield 'chip-multi-breaker-app'
+            yield 'chip-multi-breaker-app.map'
         elif self == HostApp.REFRIGERATOR:
             yield 'refrigerator-app'
             yield 'refrigerator-app.map'

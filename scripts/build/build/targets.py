@@ -204,6 +204,7 @@ def BuildHostTarget():
         TargetPart('contact-sensor', app=HostApp.CONTACT_SENSOR),
         TargetPart('dishwasher', app=HostApp.DISHWASHER),
         TargetPart('electrical-protection', app=HostApp.ELECTRICAL_PROTECTION),
+        TargetPart('multi-breaker', app=HostApp.MULTI_BREAKER),
         TargetPart('microwave-oven', app=HostApp.MICROWAVE_OVEN),
         TargetPart('refrigerator', app=HostApp.REFRIGERATOR),
         TargetPart('rvc', app=HostApp.RVC),
