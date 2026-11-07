@@ -27,7 +27,10 @@
 #include <app/util/attribute-storage.h>
 #include <data-model-providers/codegen/CodegenDataModelProvider.h>
 #include <lib/support/CodeUtils.h>
+#include <platform/ConfigurationManager.h>
 #include <platform/DefaultTimerDelegate.h>
+
+#include <cstring>
 
 using namespace chip;
 using namespace chip::app;
@@ -91,6 +94,11 @@ RegisteredServerCluster<IdentifyCluster> gIdentifyBreaker1(
 
 void ApplicationInit()
 {
+    // TC-BINFO-2.1 and TC-IDM-13.1 reject the SDK's default ManufacturingDate.
+    static constexpr char kManufacturingDate[] = "2026-01-01";
+    VerifyOrDie(DeviceLayer::ConfigurationMgr().StoreManufacturingDate(kManufacturingDate, strlen(kManufacturingDate)) ==
+                CHIP_NO_ERROR);
+
     // Identify is code-driven in this SDK: the cluster instances above only exist to be registered.
     VerifyOrDie(CodegenDataModelProvider::Instance().Registry().Register(gIdentifyEnclosure.Registration()) == CHIP_NO_ERROR);
     VerifyOrDie(CodegenDataModelProvider::Instance().Registry().Register(gIdentifyBreaker1.Registration()) == CHIP_NO_ERROR);
