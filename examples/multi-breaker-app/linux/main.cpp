@@ -60,7 +60,8 @@ const Descriptor::Structs::SemanticTagStruct::Type kBreaker2TagList[] = {
 // feature finds it on some endpoints and not others.
 constexpr BitMask<ElectricalProtectionAlarm::Feature>
     kEnclosureProtectionFeatures(ElectricalProtectionAlarm::Feature::kShortCircuit, ElectricalProtectionAlarm::Feature::kOverLoad,
-                                 ElectricalProtectionAlarm::Feature::kSelfTest);
+                                 ElectricalProtectionAlarm::Feature::kSelfTest,
+                                 ElectricalProtectionAlarm::Feature::kSurgeProtection);
 constexpr BitMask<ElectricalProtectionAlarm::Feature> kBreaker1ProtectionFeatures(ElectricalProtectionAlarm::Feature::kShortCircuit,
                                                                                   ElectricalProtectionAlarm::Feature::kOverVoltage);
 constexpr BitMask<ElectricalProtectionAlarm::Feature>
@@ -74,11 +75,14 @@ constexpr BitMask<ElectricalAlarm::Feature> kBreaker1AlarmFeatures(ElectricalAla
                                                                    ElectricalAlarm::Feature::kOverVoltage,
                                                                    ElectricalAlarm::Feature::kUnderVoltage,
                                                                    ElectricalAlarm::Feature::kOverPower,
+                                                                   ElectricalAlarm::Feature::kUnderPower,
                                                                    ElectricalAlarm::Feature::kReset);
 constexpr BitMask<ElectricalAlarm::Feature> kBreaker2AlarmFeatures(ElectricalAlarm::Feature::kOverCurrent,
                                                                    ElectricalAlarm::Feature::kOverFrequency,
                                                                    ElectricalAlarm::Feature::kUnderFrequency,
                                                                    ElectricalAlarm::Feature::kUnderCurrent,
+                                                                   ElectricalAlarm::Feature::kPowerImport,
+                                                                   ElectricalAlarm::Feature::kPowerExport,
                                                                    ElectricalAlarm::Feature::kAdjustableThresholds);
 
 // Identify is on the enclosure and the first breaker only. Both share one timer delegate, and the
